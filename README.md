@@ -1,39 +1,20 @@
 # Amount Detection Service
 
-A FastAPI-based OCR service that extracts monetary amounts (Total, Paid, Due) from bill/receipt images.
+OCR-based receipt amount detection using FastAPI.
 
 ## Features
-- OCR text extraction from bill images
-- Numeric token normalization
-- Intelligent classification of Total, Paid, and Due amounts
-- REST API with Swagger UI
+- Extracts text from receipt images using Tesseract OCR
+- Normalizes noisy OCR numeric output
+- Detects Total, Paid, and Due amounts
+- REST API with FastAPI
 
 ## Tech Stack
-- Python 3.13
+- Python
 - FastAPI
-- Uvicorn
+- Tesseract OCR
 - Pillow
-- pytesseract
-- Regex-based NLP
+- Regex-based text processing
 
-## API Endpoint
-
-### POST /detect-amounts
-Accepts an image file and returns detected amounts.
-
-**Request**
-- multipart/form-data
-- file: image/jpeg or image/png
-
-**Response**
-```json
-{
-  "raw_text": "...",
-  "numbers": [661.5, 500, 161.5],
-  "amounts": {
-    "total": 661.5,
-    "paid": 500,
-    "due": 161.5
-  },
-  "confidence": 0.75
-}
+## Installation
+```bash
+pip install -r requirements.txt
